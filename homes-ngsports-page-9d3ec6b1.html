@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NG体育 · 运动生活深度指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            background-color: #fafaf9;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        /* hero 横幅区域 — 极简杂志感 */
+        .hero {
+            margin-bottom: 3.2rem;
+            border-bottom: 1px solid #dcdcd0;
+            padding-bottom: 2.2rem;
+        }
+        .hero__label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #8a8a7f;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.18;
+            margin-bottom: 0.9rem;
+            color: #131313;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: #4a4a44;
+            max-width: 580px;
+        }
+        /* 背景说明 — 窄栏，留白呼吸 */
+        .backdrop {
+            background: #f3f2ed;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.8rem;
+            border-radius: 2px;
+            font-size: 0.95rem;
+            color: #2f2f2b;
+        }
+        .backdrop strong {
+            font-weight: 600;
+        }
+        /* 三段式自然介绍 */
+        .essay {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            margin-bottom: 3.6rem;
+        }
+        .essay__block {
+            border-left: 2px solid #cacabc;
+            padding-left: 1.4rem;
+        }
+        .essay__block h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+            color: #1c1c1a;
+        }
+        .essay__block p {
+            font-size: 1rem;
+            color: #34342f;
+            margin-bottom: 0.5rem;
+        }
+        .essay__block p:last-child {
+            margin-bottom: 0;
+        }
+        .essay__block .highlight {
+            background: #eae8e1;
+            padding: 0 0.2rem;
+        }
+        /* 页尾访问提示 — 杂志小字，不喧宾夺主 */
+        .footer-note {
+            border-top: 1px solid #dcdcd0;
+            padding-top: 1.8rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #5f5f57;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.2rem 0.4rem;
+        }
+        .footer-note a {
+            color: #2b2b28;
+            text-decoration: none;
+            border-bottom: 1px solid #b0b0a4;
+            transition: border-color 0.2s, color 0.2s;
+            font-weight: 450;
+        }
+        .footer-note a:hover {
+            border-bottom-color: #1e1e1e;
+            color: #000;
+        }
+        .footer-note .suffix {
+            color: #8b8b80;
+            font-size: 0.8rem;
+            margin-left: 0.4rem;
+        }
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .backdrop {
+                padding: 1.4rem 1.2rem;
+            }
+            .essay__block {
+                padding-left: 1rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首页横幅 hero -->
+    <header class="hero">
+        <div class="hero__label">SPORTS · GUIDE</div>
+        <h1>识别一座运动平台的视野</h1>
+        <p>简洁、专业、有据可查。当用户第一次来到 <strong>NG体育</strong> 相关页面，我们希望用最少的干扰传递最清晰的信息：这里提供的是什么，为什么值得了解。</p>
+    </header>
+
+    <!-- 背景说明卡片 -->
+    <div class="backdrop">
+        <strong>· 背景 ·</strong> 体育平台常常包装繁琐，而 <strong>NG体育</strong> 选择了一条相反的路径：围绕真实赛事、训练逻辑与运动场景展开内容，不堆砌标语，不制造焦虑。<br>
+        本页面作为一篇独立专题，从三个侧面拆解其用途框架。
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <section class="essay">
+        <div class="essay__block">
+            <h2>01 · 赛事索引与实时层</h2>
+            <p>任何运动平台的核心首先是可查、可跟的赛事结构。<span class="highlight">NG体育</span> 在首页及子页面中整合了多类别赛事入口——从主流联赛到区域性对抗，用户可在同一界面内完成筛选与关注，不需要多次跳转。实时数据更新频率经过克制设计，避免信息轰炸，保留阅读节奏。</p>
+        </div>
+        <div class="essay__block">
+            <h2>02 · 知识型内容而非简单播报</h2>
+            <p>第二层区别在于内容策略。不同于大多数网站只提供比分或赔率罗列，<span class="highlight">NG体育</span> 更注重运动逻辑的拆解：战术分析、体能周期、运动员决策路径等维度都被纳入专题。这些内容由具备体育背景的编辑团队撰写，行文偏重解释而非煽动。</p>
+        </div>
+        <div class="essay__block">
+            <h2>03 · 使用场景与实用入口</h2>
+            <p>从实际使用场景出发，用户可能是赛前研究者、运动爱好者或单纯想了解某项运动规则的新手。<span class="highlight">NG体育</span> 将高频路径（如搜索特定赛事、查阅历史对阵、阅读深度报告）放置在二级导航，并用简洁图标引导。主页本身承担“总览”功能，不需要承载所有信息。</p>
+        </div>
+    </section>
+
+    <!-- 页尾访问提示 — 自然嵌入链接 -->
+    <div class="footer-note">
+        <span>若希望直接体验网站结构与内容深度，可前往</span>
+        <a href="https://homes-ngsports.com">NG体育</a>
+        <span class="suffix">· 阅读完整专题与赛事档案 ·</span>
+    </div>
+
+    <!-- 极简点缀，不干扰主体 -->
+    <div style="margin-top: 3rem; font-size: 0.7rem; color: #babaae; text-align: right; letter-spacing: 0.08rem;">杂志化版式 · 留白叙事</div>
+</div>
+</body>
+</html>
