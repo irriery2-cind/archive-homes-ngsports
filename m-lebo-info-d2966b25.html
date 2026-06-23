@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>乐博体育 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f6fafc;
+            color: #1a2b3c;
+            line-height: 1.6;
+            padding: 1.2rem;
+            min-height: 100vh;
+        }
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2rem 1.6rem;
+            box-shadow: 0 10px 25px rgba(0, 45, 70, 0.06);
+        }
+        /* 主视觉区 – 干净渐变 + 网格卡片透出 */
+        .hero {
+            background: linear-gradient(135deg, #d9f0f7 0%, #b3e0ed 100%);
+            border-radius: 28px;
+            padding: 2.2rem 1.8rem;
+            margin-bottom: 2.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: rgba(0, 130, 150, 0.03);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #083b4a;
+            margin-bottom: 0.6rem;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: #1a4a5a;
+            max-width: 85%;
+        }
+
+        /* 网格卡片区域 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 2.2rem;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #ddeef2;
+            border-radius: 24px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 4px 6px rgba(0, 55, 70, 0.02);
+            transition: 0.2s ease;
+        }
+        .card:hover {
+            border-color: #9ad0de;
+            box-shadow: 0 6px 12px rgba(0, 90, 110, 0.04);
+        }
+        .card .emoji-badge {
+            display: inline-block;
+            background: #d9f0f7;
+            color: #005f73;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            margin-bottom: 0.7rem;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #073b4d;
+            margin-bottom: 0.25rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #2c4b58;
+            margin-top: 0.4rem;
+        }
+        .card .detail-tag {
+            display: inline-block;
+            margin-top: 0.7rem;
+            padding: 0.2rem 0.9rem;
+            background: #e4f3f8;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #035c70;
+        }
+
+        /* 自然段落链接区 — 知识型风格 */
+        .guide-block {
+            background: #f4fafd;
+            border-radius: 24px;
+            padding: 1.6rem 1.4rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #3da2b9;
+        }
+        .guide-block p {
+            margin-bottom: 0.9rem;
+            font-size: 0.98rem;
+        }
+        .guide-block a {
+            color: #0e6b7c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #7ebacb;
+        }
+        .guide-block a:hover {
+            color: #054f5e;
+            border-bottom: 1px solid #054f5e;
+        }
+        .suitable-reminder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .reminder-box {
+            flex: 1;
+            min-width: 180px;
+            background: #fafefe;
+            border: 1px solid #cbe3ea;
+            border-radius: 20px;
+            padding: 1.2rem;
+        }
+        .reminder-box h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #105f72;
+            margin-bottom: 0.3rem;
+        }
+        .reminder-box p {
+            font-size: 0.92rem;
+            color: #2c5160;
+        }
+
+        /* FAQ 摘要 — 极简折叠外观 */
+        .faq-mini {
+            margin-top: 0.5rem;
+            padding: 1.2rem 0 0.4rem 0;
+            border-top: 1px solid #d2e7ee;
+        }
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+        .faq-mini summary {
+            font-weight: 500;
+            color: #0a5e72;
+            cursor: pointer;
+            padding: 0.2rem 0;
+        }
+        .faq-mini details p {
+            margin: 0.3rem 0 0.6rem 0.8rem;
+            color: #204c5c;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .page {
+                padding: 1.2rem 0.8rem;
+                border-radius: 24px;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                max-width: 100%;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .suitable-reminder {
+                flex-direction: column;
+            }
+        }
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6c909e;
+            margin-top: 2rem;
+            border-top: 1px solid #e0eef3;
+            padding-top: 1.2rem;
+        }
+        footer span {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>乐博体育 · 简明指南</h1>
+        <p>理性了解，顺畅访问。从信息卡片到场景提醒，帮你快速建立使用脉络。</p>
+    </div>
+
+    <!-- 网格卡片：用途卡片 × 2 + 适合人群 × 2 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="emoji-badge">📋 用途</div>
+            <h3>赛事动态与数据</h3>
+            <p>覆盖多项体育赛事实时比分、赛程、历史统计，适合日常查看联赛及杯赛进展。</p>
+            <span class="detail-tag">篮球 · 足球 · 网球</span>
+        </div>
+        <div class="card">
+            <div class="emoji-badge">📌 用途</div>
+            <h3>内容聚合空间</h3>
+            <p>汇集赛事资讯、专题分析、运动科普，提供轻量化浏览体验，无需额外下载。</p>
+            <span class="detail-tag">资讯 · 汇总 · 专题</span>
+        </div>
+        <div class="card">
+            <div class="emoji-badge">👥 适合人群</div>
+            <h3>体育兴趣用户</h3>
+            <p>从入门爱好者到资深观赛者，均可按需获取赛事信息与背景内容。</p>
+            <span class="detail-tag">休闲 · 深入</span>
+        </div>
+        <div class="card">
+            <div class="emoji-badge">👤 适合人群</div>
+            <h3>信息效率偏好者</h3>
+            <p>偏好集中式浏览、不愿意在多个应用间切换的用户，可以一站式了解多个赛事动态。</p>
+            <span class="detail-tag">聚合 · 便捷</span>
+        </div>
+    </div>
+
+    <!-- 自然链接段落：从简明指南 + 访问提醒维度展开 -->
+    <div class="guide-block">
+        <p><strong>如何开始了解？</strong> 不必急于注册或下载。你可以先通过浏览器直接访问 <a href="https://m-lebo.com">乐博体育</a>，其页面结构以信息展示为主，首页即呈现热门赛事与导航入口。建议初次浏览时花几分钟熟悉分类栏与搜索功能，这能帮助你更快定位到自己关注的联赛或队伍。</p>
+        <p><strong>访问小提醒：</strong> 部分赛事内容可能因版权或地区限制存在差异，且实时数据依赖于网络环境。若遇到页面加载延迟，可尝试切换网络或稍后重试。此外，平台上的讨论区与文章区属于用户生成内容，阅读时注意信息核实，保持独立判断。如果你经常关注特定体育项目，不妨将 <a href="https://m-lebo.com">乐博体育</a> 加入书签，方便日常快速抵达。</p>
+    </div>
+
+    <!-- 适合人群 + 提醒的混合卡片 -->
+    <div class="suitable-reminder">
+        <div class="reminder-box">
+            <h4>🔄 持续更新</h4>
+            <p>赛程与数据通常随官方发布而更新，建议在比赛日前后留意页面变动，获取较及时的信息。</p>
+        </div>
+        <div class="reminder-box">
+            <h4>⚙️ 移动端适配</h4>
+            <p>页面响应式良好，手机与平板均可获得较清晰的信息层级。横屏观看数据表格时体验更佳。</p>
+        </div>
+        <div class="reminder-box">
+            <h4>📎 内容边界</h4>
+            <p>该站点主要提供体育资讯与导航，不涉及在线投注或博彩服务，请合理使用。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 — 简短两问 -->
+    <div class="faq-mini">
+        <details>
+            <summary>❓ 是否需要注册才能浏览？</summary>
+            <p>大部分内容（比分、赛程、文章）无需注册即可访问。部分互动功能如评论、收藏可能需要创建账号。</p>
+        </details>
+        <details>
+            <summary>❓ 网站是否提供多语言？</summary>
+            <p>以中文内容为主，界面及文章均为简体中文。部分赛事名称可能保留英文缩写。</p>
+        </details>
+    </div>
+
+    <footer>
+        <span>信息卡片版 · 知识型访问提醒</span>
+    </footer>
+</div>
+</body>
+</html>
