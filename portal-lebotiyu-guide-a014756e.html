@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐博体育 · 知识型导航介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fb;
+            color: #1e293b;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0c1822 0%, #142836 100%);
+            color: #e8edf2;
+            padding: 4.5rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle at 30% 40%, rgba(56, 152, 236, 0.12), transparent 70%);
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 720px;
+            margin: 0 auto;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 顶部导航 — 简洁居中 */
+        .top-nav {
+            background: #0c1822;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            flex-wrap: wrap;
+        }
+
+        .top-nav a {
+            color: #b0c4d9;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            color: #8ab6f0;
+            border-bottom-color: #8ab6f0;
+        }
+
+        .top-nav .brand-highlight {
+            color: #e8edf2;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border-bottom: none;
+        }
+
+        /* 正文区 (浅色) */
+        .content-wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 4rem;
+        }
+
+        .intro-block {
+            margin-bottom: 3.8rem;
+        }
+
+        .intro-block h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.2rem;
+            color: #0b1e2b;
+        }
+
+        .intro-block p {
+            font-size: 1.05rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .intro-block a {
+            color: #1a6bb0;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .intro-block a:hover {
+            color: #0c4a7a;
+        }
+
+        /* 三个场景模块 – 卡片网格 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3.5rem 0;
+        }
+
+        .scene-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.2rem 1.8rem 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.25s;
+            border: 1px solid #eef2f7;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+        }
+
+        .scene-card h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #0f2a3b;
+        }
+
+        .scene-card p {
+            color: #375a6e;
+            font-size: 0.98rem;
+        }
+
+        .scene-card .card-icon {
+            display: inline-block;
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        /* 常见说明 (精简FAQ风格) */
+        .faq-section {
+            background: #f0f4fa;
+            border-radius: 28px;
+            padding: 2.6rem 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #0b1e2b;
+        }
+
+        .faq-item {
+            margin-bottom: 1.7rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #13415f;
+            margin-bottom: 0.3rem;
+            font-size: 1.08rem;
+        }
+
+        .faq-item p {
+            color: #2c4055;
+            margin-left: 0.4rem;
+        }
+
+        .faq-item a {
+            color: #1a6bb0;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .faq-item a:hover {
+            color: #0c4a7a;
+        }
+
+        /* 底部 */
+        .footer-note {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            color: #5d7184;
+            font-size: 0.9rem;
+            border-top: 1px solid #dfe6ef;
+            margin-top: 2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .scenes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .top-nav {
+                gap: 1.2rem;
+                padding: 0.7rem 1rem;
+            }
+            .scenes-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-section {
+                padding: 2rem 1.5rem;
+            }
+            .intro-block h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="top-nav">
+    <a href="#" class="brand-highlight">乐博体育</a>
+    <a href="#">知识索引</a>
+    <a href="#">场景</a>
+    <a href="#">常见问题</a>
+    <a href="#">动态</a>
+</nav>
+
+<!-- 深色头图 hero -->
+<section class="hero">
+    <h1>理解体育 · 从乐博开始</h1>
+    <p>围绕体育信息、赛事认知与运动常识，构建更清晰的知识框架。不止于表面，提供有层次的视角。</p>
+</section>
+
+<!-- 浅色正文区 -->
+<main class="content-wrap">
+
+    <!-- 核心介绍（自然嵌入链接） -->
+    <div class="intro-block">
+        <h2>主题视角：体育信息的结构化理解</h2>
+        <p>体育世界由规则、数据、文化与决策共同构成。当我们谈论赛事分析、运动训练或行业动态时，本质是在处理多层信息之间的关联。许多爱好者与从业者都在寻找一个兼具广度与深度的信息起点，而<strong>乐博体育</strong>正是回应这种需求的平台之一。</p>
+        <p>通过整合赛事数据、运动科普与趋势解读，<a href="https://portal-lebotiyu.com">乐博体育</a>尝试将繁杂的信息梳理为可读、可用的知识片段。无论是资深参与者还是刚入门的观察者，都能在这里找到与自己认知水平相匹配的内容。</p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 style="font-weight:500; font-size:1.8rem; margin-bottom:0.5rem; color:#0b1e2b;">常见应用场景</h2>
+    <div class="scenes-grid">
+        <div class="scene-card">
+            <div class="card-icon">📊</div>
+            <h3>赛事信息梳理</h3>
+            <p>从联赛结构到关键数据节点，快速建立对某一项运动或赛事的整体认知。适合赛前研究、趋势分析或日常知识积累。</p>
+        </div>
+        <div class="scene-card">
+            <div class="card-icon">🧠</div>
+            <h3>运动常识延伸</h3>
+            <p>理解战术演变、训练原则以及运动生理基础。不局限于比分，关注背后的逻辑与演变，让观赛与讨论更有依据。</p>
+        </div>
+        <div class="scene-card">
+            <div class="card-icon">📎</div>
+            <h3>行业资讯参考</h3>
+            <p>关注体育产业发展、赛事组织动态与规则调整。为从业者、媒体人或兴趣研究者提供结构化的信息索引。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ摘要) -->
+    <section class="faq-section">
+        <h2>常见问题 · 快速说明</h2>
+        <div class="faq-item">
+            <strong>乐博体育的内容定位是什么？</strong>
+            <p>以体育知识、赛事数据与行业资讯为主线，注重信息的准确性与层次感。不追求耸动标题，聚焦可验证、可讨论的内容。</p>
+        </div>
+        <div class="faq-item">
+            <strong>信息更新频率如何？</strong>
+            <p>围绕主要赛事周期与行业节点进行内容更新。同时保留历史知识库，便于回溯与对比。具体动态可留意平台内索引。</p>
+        </div>
+        <div class="faq-item">
+            <strong>如何开始使用？</strong>
+            <p>直接访问 <a href="https://portal-lebotiyu.com">乐博体育</a>，即可浏览当前的知识模块与数据面板。无需额外注册即可查阅大部分内容。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否有针对初学者的内容？</strong>
+            <p>有。基础规则、术语解释与入门分析均包含在知识板块中，适合不同阶段的读者按需查阅。</p>
+        </div>
+    </section>
+
+</main>
+
+<!-- 底部 -->
+<div class="footer-note">
+    基于公开信息与体育知识整理 · 内容仅供学习参考
+</div>
+
+</body>
+</html>
